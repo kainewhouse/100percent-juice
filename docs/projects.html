@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — 100% Juice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <button id="hamburger" class="hamburger" aria-label="Open menu">&#9776;</button>
+    <a class="cart-indicator" href="products.html#cart" aria-label="View cart">&#128717; <span id="cart-count">0</span></a>
+  </header>
+
+  <!-- Slide-out sidebar -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  <nav id="sidebar" class="sidebar" aria-label="Main menu">
+    <button id="sidebar-close" class="sidebar-close" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="projects.html">Projects</a>
+    <a href="donate.html">Donate</a>
+  </nav>
+
+  <main class="wrap">
+    <h1 class="page-title">Projects — coming soon</h1>
+    <p class="lede">
+      This is where I'll share the personal coding projects I'm tinkering with —
+      macOS apps, little tools, and whatever else falls out of my brain at 2am.
+      Heads up: iOS apps can't be installed straight from a website (Apple says so),
+      but macOS app downloads are planned. Stay tuned.
+    </p>
+
+    <div class="project-grid">
+      <article class="project-card">
+        <span class="badge">macOS</span>
+        <h3>Menu Bar Widget</h3>
+        <p>A tiny macOS menu bar app for watching something useful — download planned.</p>
+      </article>
+      <article class="project-card">
+        <span class="badge">Web</span>
+        <h3>Sticker Shop</h3>
+        <p>You're soaking in it. The storefront you're looking at right now.</p>
+      </article>
+      <article class="project-card">
+        <span class="badge">iOS · soon</span>
+        <h3>Something for the phone</h3>
+        <p>An iOS app idea in progress. Can't be side-loaded from a website, but it's coming to the App Store.</p>
+      </article>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

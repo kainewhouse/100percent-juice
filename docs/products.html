@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — 100% Juice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <button id="hamburger" class="hamburger" aria-label="Open menu">&#9776;</button>
+    <a class="cart-indicator" href="#cart" aria-label="View cart">&#128717; <span id="cart-count">0</span></a>
+  </header>
+
+  <!-- Slide-out sidebar -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  <nav id="sidebar" class="sidebar" aria-label="Main menu">
+    <button id="sidebar-close" class="sidebar-close" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="projects.html">Projects</a>
+    <a href="donate.html">Donate</a>
+  </nav>
+
+  <main class="wrap">
+    <h1 class="page-title">Stickers</h1>
+    <p class="lede">Real designs, placeholder names. Add whatever looks fun to your cart.</p>
+
+    <!-- Product grid is filled in by app.js from PRODUCTS (products-data.js) -->
+    <section id="product-grid" class="product-grid" aria-label="Products"></section>
+
+    <!-- ------------------------------- Cart ------------------------------- -->
+    <section id="cart" class="cart-section">
+      <h2>Your cart</h2>
+      <div id="cart-items"></div>
+      <p id="cart-total" class="order-total">Total: $0</p>
+
+      <!-- ---------------------------- Checkout ---------------------------- -->
+      <div class="checkout">
+        <h3>Checkout</h3>
+
+        <p class="fulfill-label">Choose fulfillment:</p>
+
+        <!-- Local pickup is always selectable and never moves. -->
+        <button id="pickup-btn" class="round-btn pickup-btn" type="button">Local pickup</button>
+
+        <!-- Invisible jump overlay: a transparent, pointer-events:none layer that
+             spans the whole checkout card. app.js parks the Ship button just right
+             of Local pickup (same row, level) and lets it flee anywhere inside this
+             layer. The layer itself renders nothing and blocks nothing — only the
+             Ship button is interactive. Positioned by app.js, hidden until placed. -->
+        <div id="escape-arena" class="escape-arena">
+          <button id="ship-btn" class="round-btn ship-btn" type="button">Ship to me</button>
+        </div>
+        <span id="ship-taunt" class="taunt" aria-live="polite"></span>
+
+        <p id="checkout-notice" class="checkout-notice" aria-live="polite"></p>
+
+        <!-- Single required text input + place order -->
+        <form id="order-form" class="order-form" novalidate>
+          <div class="field">
+            <label for="first-name">First name</label>
+            <input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="e.g. Kai" required>
+          </div>
+          <button class="btn" type="submit">Place order</button>
+        </form>
+
+        <!-- Confirmation screen is injected here on submit -->
+        <div id="order-confirm"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PRODUCTS data first, then the shared app logic -->
+  <script src="js/products-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

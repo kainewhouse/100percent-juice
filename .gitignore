@@ -1,0 +1,9 @@
+# Sticker source art & scrape data stay local (not part of the website repo)
+artwork/
+data/
+scripts/
+gallery.html
+MyVenmoQRCode.png
+
+# OS junk
+.DS_Store

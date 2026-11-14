@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rename stickers — 100% Juice (private tool)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Private tool: intentionally linked from nowhere in the main nav. -->
+  <header class="topbar">
+    <a class="cart-indicator" href="index.html" aria-label="Back to home">&#8592; Home</a>
+    <span style="font-weight:600;color:var(--muted)">rename tool</span>
+  </header>
+
+  <main class="wrap">
+    <section class="tool-note">
+      <h1>Sticker rename contact sheet</h1>
+      <p>Find each sticker's real name, type it in, then copy the generated file.</p>
+      <ol>
+        <li>Every sticker below is shown with its current (guessed) name and description.</li>
+        <li>Type the real <strong>Name</strong> (and <strong>Description</strong>) into the fields.</li>
+        <li>Scroll down and hit <strong>Generate corrected products-data.js</strong>.</li>
+        <li>Hit <strong>Copy</strong>, then paste the result over <code>docs/js/products-data.js</code>.</li>
+      </ol>
+      <p>Prices stay <strong>$0.00</strong>; artwork image paths, sizes, and uuids are preserved.</p>
+    </section>
+
+    <!-- Filled in by rename.js from the PRODUCTS array -->
+    <section id="rename-grid" class="rename-grid" aria-label="Sticker contact sheet"></section>
+
+    <div class="tool-actions">
+      <button id="generate-btn" class="btn" type="button">Generate corrected products-data.js</button>
+      <button id="copy-btn" class="btn btn-ghost" type="button">Copy</button>
+      <span id="copy-status" class="copy-status" aria-live="polite"></span>
+    </div>
+
+    <textarea id="code-out" class="code-out" readonly spellcheck="false" aria-label="Generated products-data.js"></textarea>
+  </main>
+
+  <!-- PRODUCTS data first, then the rename tool logic -->
+  <script src="js/products-data.js"></script>
+  <script src="js/rename.js"></script>
+</body>
+</html>

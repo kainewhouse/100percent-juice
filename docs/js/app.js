@@ -353,18 +353,70 @@ function renderConfirmation(order) {
   const wrap = document.getElementById("order-confirm");
   if (!wrap) return;
   const text = buildOrderText(order);
-  const subject = encodeURIComponent("100% Juice order from " + order.name);
-  const body = encodeURIComponent(text);
   wrap.innerHTML = `
     <div class="confirm">
       <h3>Order placed! 🧃</h3>
       <p>Thanks, <strong>${escapeHtml(order.name)}</strong>! Here's what you ordered (pickup only, natch):</p>
       <pre>${escapeHtml(text)}</pre>
       <p>
-        <a class="btn btn-yellow" href="mailto:?subject=${subject}&body=${body}">Email this order to Kai</a>
+        <button class="btn btn-yellow" id="copy-order-btn" type="button">Copy your order 🧃</button>
+        <span id="copy-order-status" class="copy-status" role="status" aria-live="polite"></span>
       </p>
     </div>
   `;
+
+  const btn = document.getElementById("copy-order-btn");
+  const status = document.getElementById("copy-order-status");
+
+  const onCopied = () => {
+    if (btn) btn.textContent = "Copied!";
+    if (status) status.textContent = "Copied! Paste it into a text to Kai.";
+  };
+
+  const showMailtoFallback = () => {
+    if (!status) return;
+    status.innerHTML = "";
+    const subject = encodeURIComponent("100% Juice order");
+    const body = encodeURIComponent(text);
+    const link = document.createElement("a");
+    link.className = "btn btn-yellow";
+    link.href = `mailto:?subject=${subject}&body=${body}`;
+    link.textContent = "Open a new email with your order";
+    status.appendChild(link);
+  };
+
+  const execCommandCopy = () => {
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.top = "-1000px";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    } catch {
+      return false;
+    }
+  };
+
+  if (btn) {
+    btn.addEventListener("click", () => {
+      const fallback = () => {
+        if (execCommandCopy()) onCopied();
+        else showMailtoFallback();
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(onCopied, fallback);
+      } else {
+        fallback();
+      }
+    });
+  }
+
   wrap.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 

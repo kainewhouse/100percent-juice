@@ -8,7 +8,7 @@ directories untouched.
 docs/
   index.html            # landing page (banner: img/juice-banner.png)
   products.html         # sticker grid + cart + checkout
-  projects.html         # coming-soon placeholder
+  projects.html         # projects showcase
   donate.html           # Venmo QR
   rename.html           # PRIVATE rename tool — sticker name contact sheet (not in the nav)
   css/style.css         # shared styles (dark vaporwave theme — see palette notes below)

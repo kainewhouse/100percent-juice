@@ -616,6 +616,99 @@ a:hover { text-decoration: underline; }
 }
 
 /* ==========================================================================
+   Project showcase (phone preview + details)
+   ========================================================================== */
+.showcase {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 30px;
+  padding: 30px;
+  background: linear-gradient(160deg, rgba(38, 14, 66, 0.94), rgba(15, 4, 34, 0.94));
+  border: 1px solid rgba(185, 103, 255, 0.4);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.showcase-phone { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.phone-frame {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 46px;
+  background: linear-gradient(145deg, #2b1b44, #0a0216);
+  border: 2px solid rgba(1, 205, 254, 0.55);
+  box-shadow: var(--shadow-lg), var(--glow-cyan);
+}
+.phone-screen {
+  position: relative;
+  aspect-ratio: 1206 / 2622;
+  border-radius: 37px;
+  overflow: hidden;
+  background: #000;
+}
+.phone-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+.phone-media.is-active { display: block; }
+.screen-picker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.screen-picker button {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  background: rgba(1, 205, 254, 0.08);
+  border: 1px solid rgba(1, 205, 254, 0.45);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+.screen-picker button:hover { background: rgba(1, 205, 254, 0.2); }
+.screen-picker button[aria-selected="true"] {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: #fff;
+  box-shadow: var(--glow-pink);
+}
+.screen-picker button:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
+.showcase-info h2 {
+  margin: 12px 0 10px;
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--pink-soft);
+  text-shadow: 0 0 18px rgba(255, 43, 214, 0.45);
+}
+.showcase-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tag {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cyan);
+  border: 1px solid rgba(1, 205, 254, 0.45);
+  border-radius: 999px;
+  padding: 3px 11px;
+}
+.showcase-blurb { font-size: 18px; }
+.feature-list { padding-left: 20px; color: var(--muted); }
+.feature-list li { margin: 6px 0; }
+.feature-list li::marker { color: var(--pink); }
+.showcase-note { font-size: 14px; color: var(--muted-dim); }
+
+@media (max-width: 760px) {
+  .showcase { grid-template-columns: 1fr; padding: 20px 16px; gap: 26px; }
+  .phone-frame { max-width: 260px; }
+}
+
+/* ==========================================================================
    Donate
    ========================================================================== */
 .donate-card {

@@ -8,7 +8,9 @@ directories untouched.
 docs/
   index.html            # landing page (banner: img/juice-banner.png)
   products.html         # sticker grid + cart + checkout
-  projects.html         # projects showcase
+  projects.html         # projects showcase (Places I've Pooped phone preview)
+  js/projects.js        # projects page screen picker (demo video / screenshots)
+  img/projects/<slug>/  # per-project screenshots + demo video
   donate.html           # Venmo QR
   rename.html           # PRIVATE rename tool — sticker name contact sheet (not in the nav)
   css/style.css         # shared styles (dark vaporwave theme — see palette notes below)

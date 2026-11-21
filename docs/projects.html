@@ -29,11 +29,59 @@
 
   <main class="wrap">
     <h1 class="page-title">Projects</h1>
-    <p class="lede">Stuff I've built. New things land here soon.</p>
+    <p class="lede">Stuff I've built.</p>
 
-    <div class="project-grid" id="project-grid"></div>
+    <article class="showcase" id="places-ive-pooped">
+      <div class="showcase-phone">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <video id="pip-video" class="phone-media is-active" src="img/projects/places-ive-pooped/demo.mp4"
+                   poster="img/projects/places-ive-pooped/demo-poster.jpg"
+                   muted loop playsinline preload="metadata" aria-label="Screen recording: dropping and rating a new pin"></video>
+            <img id="pip-shot" class="phone-media" alt="">
+          </div>
+        </div>
+        <div class="screen-picker" role="tablist" aria-label="Choose a screen to preview">
+          <button role="tab" aria-selected="true" data-screen="video">&#9654; Demo</button>
+          <button role="tab" aria-selected="false" data-screen="map" data-alt="Map of San Francisco covered in rating-colored pins">Map</button>
+          <button role="tab" aria-selected="false" data-screen="detail" data-alt="Pin detail card with a 5-star rating">Pin</button>
+          <button role="tab" aria-selected="false" data-screen="drawer" data-alt="Side drawer with layers, stats, achievements and backup">Menu</button>
+          <button role="tab" aria-selected="false" data-screen="stats" data-alt="Statistics screen with streaks and a ratings chart">Stats</button>
+          <button role="tab" aria-selected="false" data-screen="badges" data-alt="Achievements grid, 9 of 23 unlocked">Badges</button>
+          <button role="tab" aria-selected="false" data-screen="timeline" data-alt="Timeline of pins grouped by day">Timeline</button>
+        </div>
+      </div>
+
+      <div class="showcase-info">
+        <div class="showcase-tags">
+          <span class="badge">iOS</span>
+          <span class="tag">SwiftUI</span>
+          <span class="tag">SwiftData</span>
+          <span class="tag">MapKit</span>
+        </div>
+        <h2>Places I've Pooped <span aria-hidden="true">&#128169;</span></h2>
+        <p class="showcase-blurb">
+          A tongue-in-cheek iPhone app for dropping a pin everywhere you've, well, been.
+          Long-press the map, give the stop a 1&ndash;5 rating and a #1 / #2 tag, and
+          watch the map fill up with color-coded pins.
+        </p>
+        <ul class="feature-list">
+          <li>Rating-colored pins, plus Satellite, OpenStreetMap and Heatmap layers</li>
+          <li>Statistics with streaks, a ratings chart and distance from home</li>
+          <li>23 achievement badges that unlock as you go</li>
+          <li>Timeline, countries &amp; states visited, photos and video per pin</li>
+          <li>Offline maps, full backup / restore &mdash; everything stays on the phone</li>
+        </ul>
+        <p class="showcase-note">
+          It's a native iOS app, so it can't run in the browser &mdash; tap the buttons
+          under the phone to flip through real screens. Demo data, San Francisco edition.
+        </p>
+        <a class="btn" href="https://github.com/kainewhouse/places-ive-pooped" target="_blank" rel="noopener">View the code on GitHub</a>
+      </div>
+    </article>
   </main>
 
   <script src="js/app.js"></script>
+  <script src="js/projects.js"></script>
 </body>
 </html>
